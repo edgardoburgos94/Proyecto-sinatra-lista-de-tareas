@@ -1,0 +1,32 @@
+header {
+  background: #333;
+  color: #fff;
+  height: 75px;
+  text-align: center;
+}
+
+body {
+  background: #fafafa;;
+}
+
+.titulos {
+  padding-top: 30px;
+  border-bottom: 2px solid black;
+}
+
+.formulario {
+  margin-top: 10px;
+}
+
+.sidebar {
+  background:#fafafa;;
+  padding: 10px;
+
+}
+
+.lista {
+  background: #fFfFfF;
+  padding: 10px;
+  text-align: center;
+
+}

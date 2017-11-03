@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proyecto Sinatra</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>Lista de tareas</h1>
+      </div>
+    </header>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 sidebar">
+          <div class="titulos">
+            <h3>Agregar tarea</h3>
+          </div>
+          <form class="formulario" action="/agregar" method="post">
+            <input type="text" name="agregar" value="Nombre de la tarea">
+            <button type="submit">AGREGAR</button>
+          </form>
+
+          <div class="titulos">
+            <h3>Completar tarea</h3>
+          </div>
+          <form class="formulario" action="/completar" method="post">
+            <input type="text" name="completar" value="Id de la tarea">
+            <button type="submit">COMPLETAR</button>
+          </form>
+
+          <div class="titulos">
+            <h3>Borrar tarea</h3>
+          </div>
+          <form class="formulario" action="/borrar" method="post">
+            <input type="text" name="borrar" value="Id de la tarea">
+            <button type="submit">BORRAR</button>
+          </form>
+        </div>
+        <div class="col-sm-8 lista">
+
+
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Tarea</th>
+                <th scope="col">¿Hecho?</th>
+                <th scope="col">Creada a las</th>
+                <th scope="col">Actualizada a las</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% if @arreglo != nil %>
+              <% n=@arreglo.length  %>
+              <% if n > 1 %>
+              <% (0..n-1).each do |i| %>
+              <tr>
+                <th><%= @arreglo[i]["id"]%></th>
+                <td><%= @arreglo[i]["title"]%></td>
+                <td><%= @arreglo[i]["done"]%></td>
+                <td><%= @arreglo[i]["created_at"]%></td>
+                <td><%= @arreglo[i]["updated_at"]%></td>
+              </tr>
+              <%end%>
+              <%elsif n == 1%>
+              <tr>
+                <th><%= @arreglo[0]["id"]%></th>
+                <td><%= @arreglo[0]["title"]%></td>
+                <td><%= @arreglo[0]["done"]%></td>
+                <td><%= @arreglo[0]["created_at"]%></td>
+                <td><%= @arreglo[0]["updated_at"]%></td>
+              </tr>
+              <%end%>
+              <%end%>
+            </tbody>
+          </table>
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container">
+
+
+
+    </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+  </body>
+</html>
